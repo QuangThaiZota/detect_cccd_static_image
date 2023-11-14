@@ -65,7 +65,7 @@ class _MyAppState extends State<MyApp> {
         buttonSize: const Size(56.0, 56.0),
         children: [
           SpeedDialChild(
-            //speed dial child
+            //speed dialc child
             child: const Icon(Icons.video_call),
             backgroundColor: Colors.red,
             foregroundColor: Colors.white,
@@ -182,22 +182,22 @@ class _YoloVideoState extends State<YoloVideo> {
             ),
             child: isDetecting
                 ? IconButton(
-              onPressed: () async {
-                stopDetection();
+                  onPressed: () async {
+                    stopDetection();
               },
-              icon: const Icon(
-                Icons.stop,
-                color: Colors.red,
+                  icon: const Icon(
+                    Icons.stop,
+                    color: Colors.red,
               ),
               iconSize: 50,
             )
                 : IconButton(
-              onPressed: () async {
-                await startDetection();
+                  onPressed: () async {
+                    await startDetection();
               },
-              icon: const Icon(
-                Icons.play_arrow,
-                color: Colors.white,
+                  icon: const Icon(
+                    Icons.play_arrow,
+                    color: Colors.white,
               ),
               iconSize: 50,
             ),
@@ -275,7 +275,7 @@ class _YoloVideoState extends State<YoloVideo> {
             border: Border.all(color: Colors.pink, width: 2.0),
           ),
           child: Text(
-            "${result['tag']} ${(result['box'][4] * 100).toStringAsFixed(0)}%",
+            "${result['tag']} ${(result['box'][4] * 100).toStringAsFixed(2)}%",
             style: TextStyle(
               background: Paint()..color = colorPick,
               color: Colors.white,
@@ -357,7 +357,7 @@ class _YoloImageV8State extends State<YoloImageV8> {
   Future<void> loadYoloModel() async {
     await widget.vision.loadYoloModel(
         labels: 'assets/labelmodel.txt',
-        modelPath: 'assets/best_float16.tflite',
+        modelPath: 'assets/best_float32.tflite',
         modelVersion: "yolov8",
         quantization: true,
         numThreads: 2,

@@ -89,6 +89,18 @@ class _MyAppState extends State<MyApp> {
               });
             },
           ),
+          SpeedDialChild(
+            child: const Icon(Icons.text_snippet_outlined),
+            foregroundColor: Colors.white,
+            backgroundColor: Colors.green,
+            label: 'Tesseract',
+            labelStyle: const TextStyle(fontSize: 18.0),
+            onTap: () {
+              setState(() {
+                option = Options.tesseract;
+              });
+            },
+          ),
         ],
       ),
     );
